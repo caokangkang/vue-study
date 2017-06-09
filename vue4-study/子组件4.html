@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <z1 v-on:change="abc"></z1>
+    </div>
+    <script>
+        /*
+        * 父组件 向 子组件 传递 用 v-bind 缩写 ： 接收方式 props
+        * 子组件 向 父组件 传递 用 v-on 缩写 @ 接收方式 methods `
+        *
+        * */
+        Vue.component("z1",{
+            template:"<div><button @click='change()'></button></div>",
+            methods:{
+                change:function(){
+                    /* 发送了消息 第一个参数时间的名称  后面所有的所要传递消息 */
+                    this.$emit('change','abc','def')
+                }
+            }
+        });
+        new Vue({
+            el : '#app',
+            data : {
+
+            },
+            methods:{
+                abc:function(){
+                    console.log(arguments)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

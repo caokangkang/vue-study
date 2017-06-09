@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 父组件想子组件传递数据 :自定义名字=“想要传递的数据” -->
+        <z1 :abc="name"></z1>
+    </div>
+    <script>
+        Vue.component("z1",{
+            template:'<div>{{abc.name}}{{abc.title}}'
+                return {
+
+                }
+            }
+        });
+        new Vue({
+            el : '#app',
+            data :{
+                name : {
+                    name:'123',
+                    title:'456'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
