@@ -1,0 +1,2 @@
+// 引入2.js 赋值给变量xxx
+import xxx from './2.js'
